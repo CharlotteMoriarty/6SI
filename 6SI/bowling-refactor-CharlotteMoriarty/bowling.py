@@ -7,7 +7,9 @@ def score(game):
             result += 10 - last_result
         else:
             result += get_value(game[i])
+
         if frame < 10  and get_value(game[i]) == 10:
+
             if game[i] == '/':
                 result += get_value(game[i+1])
             elif game[i] == 'X' or game[i] == 'x': 
@@ -16,14 +18,23 @@ def score(game):
                     result += 10 - get_value(game[i+1])
                 else:
                     result += get_value(game[i+2])
-        last_result = get_value(game[i]) # last co?
-        
+
+
+        last_result = get_value(game[i])
+
+
+
+
+
+
+
         if not in_first_half: 
            frame += 1
         if in_first_half == True:
             in_first_half = False
         else:
             in_first_half = True
+            
         if game[i] == 'X' or game[i] == 'x':
             in_first_half = True
             frame += 1
@@ -43,4 +54,5 @@ def get_value(char):
         return 0
     else:
         raise ValueError()
+       
         
